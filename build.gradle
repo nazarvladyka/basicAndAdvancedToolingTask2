@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.1.2.RELEASE'
+}
+
+group 'com.nazarvladyka'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.google.guava', name: 'guava', version: '11.0.2'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+String when
+
+// Custom Gradle tasks
+task beforeDefault() {
+    doFirst {
+        when = 'before'
+        println 'This task will be execute ${when} one'
+    }
+}
+
+task afterDefault() {
+    doLast {
+        when = 'after'
+        println 'This task will be execute ${when} default one'
+    }
+}
